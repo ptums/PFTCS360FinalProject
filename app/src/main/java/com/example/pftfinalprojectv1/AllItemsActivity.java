@@ -1,19 +1,26 @@
 package com.example.pftfinalprojectv1;
 
+import static androidx.core.content.ContextCompat.startActivity;
+
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class AllItemsActivity extends AppCompatActivity {
 
@@ -21,6 +28,7 @@ public class AllItemsActivity extends AppCompatActivity {
 
     ListView simpleList;
     ArrayList<String> inventoryList = new ArrayList<String>();
+    ArrayList<String> idList = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,20 +69,62 @@ public class AllItemsActivity extends AppCompatActivity {
             String quantity = all_items.getString(quantityIndex);
 
 
-            String item = "Name: " + name + " - $" + price + " - qty:" + quantity + " - View Details";
+            String item = "Name: " + name + "\n $" + price + "\n qty: " + quantity + "\n View Details";
             inventoryList.add(item);
+            idList.add(id);
+
         }
 
 
         simpleList = (ListView)findViewById(R.id.simpleListView);
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, R.layout.activity_listview, R.id.textView, inventoryList);
+        ArrayAdapter<String> arrayAdapter = new InventoryItemArrayAdapter(this, inventoryList, idList);
         simpleList.setAdapter(arrayAdapter);
 
+
+
     }
-    public void editItemBtn(View view) {
-        Log.v(null, "We have a clickablebutton");
-        // TODO: Pass ID into this function
-        // Then redirect to create item screen with id as argument
+}
+
+// Reference: https://www.geeksforgeeks.org/custom-arrayadapter-with-listview-in-android/
+class InventoryItemArrayAdapter extends ArrayAdapter<String> {
+
+    private final Context context;
+
+    private final List<String> items;
+    private final List<String> ids;
+
+    public InventoryItemArrayAdapter(Context context, List<String> items, List<String> ids) {
+        super(context, R.layout.activity_listview, items);
+        this.context = context;
+        this.items = items;
+        this.ids = ids;
     }
 
+    @NonNull
+    @Override
+    public View getView(int position, View convertView, @NonNull ViewGroup parent) {
+        View currentInventoryItem = convertView;
+
+        if (currentInventoryItem  == null) {
+            currentInventoryItem  = LayoutInflater.from(getContext()).inflate(R.layout.activity_listview, parent, false);
+        }
+
+        TextView inventoryItem = currentInventoryItem.findViewById(R.id.inventoryItem);
+        inventoryItem.setText(items.get(position));
+        inventoryItem.setTag(ids.get(position));
+
+        inventoryItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String id = (String) v.getTag();
+
+                Intent goToCreateAccountScreen = new Intent(context, CreateItemActivity.class);
+                goToCreateAccountScreen.putExtra("edit_item_id", id);
+                context.startActivity(goToCreateAccountScreen);
+            }
+        });
+
+        return currentInventoryItem;
+    }
 }
+

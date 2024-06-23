@@ -1,6 +1,7 @@
 package com.example.pftfinalprojectv1;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -39,6 +40,46 @@ public class CreateItemActivity extends AppCompatActivity {
                 goToAllInventoryScreen();
             }
         });
+
+        // Set values if there is an edit item id
+        Intent intent = getIntent();
+        String edit_item_id = intent.getStringExtra("edit_item_id");
+
+        if(edit_item_id != null) {
+
+            Cursor getItem = inventoryDb.getItemById(edit_item_id);
+
+            int items_length = getItem.getCount();
+
+            int nameIndex = getItem.getColumnIndex("name");
+            int priceIndex = getItem.getColumnIndex("price");
+            int quantityIndex = getItem.getColumnIndex("quantity");
+            int categoryIndex = getItem.getColumnIndex("category");
+            int descriptionIndex = getItem.getColumnIndex("description");
+            int statusIndex = getItem.getColumnIndex("status");
+
+            for(int i = 0; i < items_length; i++) {
+                getItem.moveToNext();
+                String name = getItem.getString(nameIndex);
+                String price = getItem.getString(priceIndex);
+                String quantity = getItem.getString(quantityIndex);
+                String description = getItem.getString(descriptionIndex);
+                String category = getItem.getString(categoryIndex);
+                String status = getItem.getString(statusIndex);
+
+
+                itemNameText.setText(name);
+                itemQuantityText.setText(quantity);
+                itemDescriptionText.setText(description);
+                itemCategoryText.setText(category);
+                itemStatusText.setText(status);
+                itemPriceText.setText(price);
+
+            }
+
+
+
+        }
     }
 
     private void goToAllInventoryScreen() {

@@ -39,6 +39,11 @@ public class InventoryDb extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         return db.rawQuery("SELECT * FROM inventory",null);
     }
+
+    public Cursor getItemById(String id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        return db.rawQuery("SELECT * FROM inventory WHERE _id = ?", new String[]{id});
+    }
 }
 
 
