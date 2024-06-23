@@ -1,13 +1,10 @@
 package com.example.pftfinalprojectv1;
 
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-import android.util.Log;
 import android.widget.Toast;
-
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -31,7 +28,7 @@ public class CreateAccountActivity extends AppCompatActivity {
 
 
         usersDb = new UsersDb(this);
-        usersDb.getWritableDatabase();
+
 
         // When the user clicks back to login
         // direct user to activity_main.xml

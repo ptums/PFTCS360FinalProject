@@ -27,8 +27,6 @@ public class MainActivity extends AppCompatActivity {
         enter_password_text = findViewById(R.id.enter_password_text);
 
         usersDb = new UsersDb(this);
-        usersDb.getWritableDatabase();
-
 
         // When the user clicks create an account
         // direct user to activity_create_user.xml
@@ -41,7 +39,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
+        // When the user clicks notification settings
+        // direct user to activity_sms.xml
+        TextView notificationSettingsTextView = findViewById(R.id.notification_settings);
+        notificationSettingsTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SMSActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     public void signIn(View view) {

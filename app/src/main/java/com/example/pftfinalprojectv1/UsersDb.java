@@ -4,7 +4,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 public class UsersDb extends SQLiteOpenHelper {
     public UsersDb(Context context) {
@@ -23,25 +22,14 @@ public class UsersDb extends SQLiteOpenHelper {
     }
 
     public void addUser(String employee_id, String full_name, String email, String password) {
-
-        Log.v("employeeId in DB call:", employee_id);
-        Log.v("fullName in DB call:", full_name);
-        Log.v("password in DB call:", password);
-        Log.v("email in DB call:", email);
-
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("employee_id", employee_id);
         values.put("full_name", full_name);
         values.put("email", email);
         values.put("password", password);
-        Log.v("values: ", String.valueOf(values));
         db.insert("accounts", null, values);
 
-    }
-    public Cursor getAllUsers() {
-        SQLiteDatabase db = this.getReadableDatabase();
-        return db.rawQuery("SELECT * FROM accounts ", null);
     }
 
     public Cursor findUser(String employeeId, String password) {

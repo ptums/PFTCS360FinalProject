@@ -6,7 +6,6 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -27,18 +26,15 @@ public class CreateItemActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_create_item);
 
-
-
         itemNameText = findViewById(R.id.item_name_text);
         itemQuantityText = findViewById(R.id.item_quantity_text);
         itemDescriptionText = findViewById(R.id.item_description_text);
         itemCategoryText = findViewById(R.id.item_category_text);
         itemStatusText = findViewById(R.id.item_status_text);
         itemPriceText = findViewById(R.id.item_price_text);
+
         // Initialize inventory database
         inventoryDb = new InventoryDb(this);
-        inventoryDb.getWritableDatabase();
-
 
         // When the user clicks back to all inventory
         // direct user to activity all items.xml
@@ -69,9 +65,7 @@ public class CreateItemActivity extends AppCompatActivity {
             int descriptionIndex = getItem.getColumnIndex("description");
             int statusIndex = getItem.getColumnIndex("status");
 
-            int display_length = getDisplayLength(items_length);
-
-            for(int i = 0; i < display_length; i++) {
+            for(int i = 0; i < items_length; i++) {
                 getItem.moveToNext();
                 String id = getItem.getString(idIndex);
                 String name = getItem.getString(nameIndex);
@@ -89,6 +83,7 @@ public class CreateItemActivity extends AppCompatActivity {
                 itemStatusText.setText(status);
                 itemPriceText.setText(price);
 
+                // Store the current items id for later use
                 currentId = id;
 
                 // Update the create item button text
@@ -115,7 +110,6 @@ public class CreateItemActivity extends AppCompatActivity {
             createItemButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Log.v(null, "Hit 2 create");
                     createItemBtn();
                 }
             });
@@ -278,9 +272,5 @@ public class CreateItemActivity extends AppCompatActivity {
         inventoryDb.close();
         Toast.makeText(this, "This item has been deleted! You will now be directed back to inventory list", Toast.LENGTH_SHORT).show();
         goToAllInventoryScreen();
-    }
-
-    public int getDisplayLength(int itemsLength) {
-        return Math.min(itemsLength, 5);
     }
 }
