@@ -1,20 +1,16 @@
 package com.example.pftfinalprojectv1;
 
-import static androidx.core.content.ContextCompat.startActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -37,7 +33,6 @@ public class AllItemsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_all_items);
 
         inventoryDb = new InventoryDb(this);
-        inventoryDb.getWritableDatabase();
 
         // When the user clicks add item
         // direct user to activity_create_item.xml
@@ -72,7 +67,9 @@ public class AllItemsActivity extends AppCompatActivity {
         int priceIndex = all_items.getColumnIndex("price");
         int quantityIndex = all_items.getColumnIndex("quantity");
 
-        for(int i = 0; i < items_length; i++) {
+        int display_length = getDisplayLength(items_length);
+
+        for(int i = 0; i < display_length; i++) {
             all_items.moveToNext();
             String id = all_items.getString(idIndex);
             String name = all_items.getString(nameIndex);
@@ -91,9 +88,11 @@ public class AllItemsActivity extends AppCompatActivity {
         ArrayAdapter<String> arrayAdapter = new InventoryItemArrayAdapter(this, inventoryList, idList);
         simpleList.setAdapter(arrayAdapter);
 
-
-
     }
+    public int getDisplayLength(int itemsLength) {
+        return Math.min(itemsLength, 5);
+    }
+
 }
 
 // Reference: https://www.geeksforgeeks.org/custom-arrayadapter-with-listview-in-android/
@@ -130,6 +129,7 @@ class InventoryItemArrayAdapter extends ArrayAdapter<String> {
                 String id = (String) v.getTag();
 
                 Intent goToCreateAccountScreen = new Intent(context, CreateItemActivity.class);
+                // Reference: https://sebhastian.com/android-putextra/
                 goToCreateAccountScreen.putExtra("edit_item_id", id);
                 context.startActivity(goToCreateAccountScreen);
             }

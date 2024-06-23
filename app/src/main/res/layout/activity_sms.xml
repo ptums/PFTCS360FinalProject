@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/tan"
     android:padding="16dp"
-    tools:context=".MainActivity">
+    tools:context=".SMSActivity">
 
     <TextView
         android:id="@+id/warehouseInventoryText"
@@ -33,14 +33,13 @@
         android:padding="8dp"
         android:text="@string/disclaimer_text"
         android:textSize="16sp"
+        tools:ignore="MissingConstraints"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="9dp"
-        tools:layout_editor_absoluteY="136dp"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintVertical_bias="0.15" />
 
     <TextView
         android:id="@+id/employee_phone"
@@ -52,34 +51,33 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.039"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.525" />
+        app:layout_constraintVertical_bias="0.40"/>
 
     <EditText
-        android:id="@+id/enter_employee_phone_text"
+        android:id="@+id/editTextPhone"
         android:layout_width="373dp"
         android:layout_height="53dp"
         android:autofillHints=""
         android:background="@color/white"
         android:ems="10"
-        android:inputType="phone"
-        android:labelFor="@id/enter_employee_phone_text"
         android:minHeight="48dp"
         android:padding="8dp"
-        android:text="@string/enter_device_phone_number"
+        android:labelFor="@+id/editTextPhone"
+        android:inputType="phone"
+        android:text="@string/_5554"
         tools:ignore="DuplicateClickableBoundsCheck,MissingConstraints,TextFields"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="9dp"
-        tools:layout_editor_absoluteY="404dp" />
+        app:layout_constraintVertical_bias="0.47"/>
 
     <ToggleButton
-        android:id="@+id/toggleButton"
+        android:id="@+id/on_off"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
@@ -90,10 +88,25 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="9dp"
-        tools:layout_editor_absoluteY="490dp" />
+        app:layout_constraintVertical_bias="0.55" />
+
+    <Button
+        android:id="@+id/send_sms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:onClick="onButtonClick"
+        android:text="@string/send_sms"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.65"
+        />
 
     <TextView
+        android:id="@+id/log_out"
         android:layout_width="136dp"
         android:layout_height="36dp"
         android:padding="8dp"
@@ -104,7 +117,6 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="574dp" />
+        app:layout_constraintVertical_bias="0.90" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -48,17 +48,18 @@
         android:autofillHints=""
         android:background="@color/white"
         android:ems="10"
+        android:hint="@string/enter_employee_id"
         android:inputType="text"
         android:labelFor="@id/enter_employee_id_text"
         android:minHeight="48dp"
         android:padding="8dp"
-        tools:ignore="MissingConstraints,DuplicateClickableBoundsCheck"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.27"/>
+        app:layout_constraintVertical_bias="0.27"
+        tools:ignore="MissingConstraints,DuplicateClickableBoundsCheck" />
 
     <TextView
         android:id="@+id/password"
@@ -82,17 +83,18 @@
         android:autofillHints=""
         android:background="@color/white"
         android:ems="10"
+        android:hint="@string/enter_your_password"
         android:inputType="textPassword"
         android:labelFor="@id/enter_password_text"
         android:minHeight="48dp"
         android:padding="8dp"
-        tools:ignore="MissingConstraints"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.46" />
+        app:layout_constraintVertical_bias="0.46"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/sign_in_button"
@@ -125,5 +127,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.7" />
+
+    <TextView
+        android:id="@+id/notification_settings"
+        android:layout_width="300dp"
+        android:layout_height="36dp"
+        android:padding="8dp"
+        android:text="@string/notification_settings"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.75" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
