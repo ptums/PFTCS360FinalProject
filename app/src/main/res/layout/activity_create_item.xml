@@ -48,17 +48,18 @@
         android:autofillHints=""
         android:background="@color/white"
         android:ems="10"
+        android:hint="@string/enter_item_name"
         android:inputType="text"
-        android:labelFor="@id/item_name_text"
         android:minHeight="48dp"
         android:padding="8dp"
-        tools:ignore="MissingConstraints,DuplicateClickableBoundsCheck"
+        android:textColorHint="#757575"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.13"/>
+        app:layout_constraintVertical_bias="0.13"
+        tools:ignore="MissingConstraints,DuplicateClickableBoundsCheck" />
 
     <TextView
         android:id="@+id/item_quantity"
@@ -82,17 +83,18 @@
         android:autofillHints=""
         android:background="@color/white"
         android:ems="10"
+        android:hint="@string/enter_item_quantity"
         android:inputType="text"
-        android:labelFor="@id/item_quantity_text"
         android:minHeight="48dp"
         android:padding="8dp"
-        tools:ignore="MissingConstraints,DuplicateClickableBoundsCheck"
+        android:textColorHint="#757575"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.265" />
+        app:layout_constraintVertical_bias="0.265"
+        tools:ignore="MissingConstraints,DuplicateClickableBoundsCheck" />
 
 
     <TextView
@@ -117,17 +119,18 @@
         android:autofillHints=""
         android:background="@color/white"
         android:ems="10"
+        android:hint="@string/enter_item_description"
         android:inputType="text"
-        android:labelFor="@id/item_description_text"
         android:minHeight="48dp"
         android:padding="8dp"
-        tools:ignore="MissingConstraints,DuplicateClickableBoundsCheck"
+        android:textColorHint="#757575"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.4"/>
+        app:layout_constraintVertical_bias="0.4"
+        tools:ignore="MissingConstraints,DuplicateClickableBoundsCheck" />
 
     <TextView
         android:id="@+id/item_category"
@@ -151,17 +154,18 @@
         android:autofillHints=""
         android:background="@color/white"
         android:ems="10"
+        android:hint="@string/enter_item_category"
         android:inputType="text"
-        android:labelFor="@id/item_category_text"
         android:minHeight="48dp"
         android:padding="8dp"
-        tools:ignore="MissingConstraints,DuplicateClickableBoundsCheck"
+        android:textColorHint="#757575"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.54" />
+        app:layout_constraintVertical_bias="0.54"
+        tools:ignore="MissingConstraints,DuplicateClickableBoundsCheck" />
 
     <TextView
         android:id="@+id/item_status"
@@ -185,17 +189,19 @@
         android:autofillHints=""
         android:background="@color/white"
         android:ems="10"
+        android:hint="@string/item_enter_status"
         android:inputType="text"
         android:labelFor="@id/item_status_text"
         android:minHeight="48dp"
         android:padding="8dp"
-        tools:ignore="MissingConstraints,DuplicateClickableBoundsCheck"
+        android:textColorHint="#757575"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.67"/>
+        app:layout_constraintVertical_bias="0.67"
+        tools:ignore="MissingConstraints,DuplicateClickableBoundsCheck" />
 
     <TextView
         android:id="@+id/item_price"
@@ -219,17 +225,19 @@
         android:autofillHints=""
         android:background="@color/white"
         android:ems="10"
+        android:hint="@string/enter_item_price"
         android:inputType="text"
         android:labelFor="@id/item_status_text"
         android:minHeight="48dp"
         android:padding="8dp"
-        tools:ignore="MissingConstraints,DuplicateClickableBoundsCheck"
+        android:textColorHint="#757575"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.8"/>
+        app:layout_constraintVertical_bias="0.8"
+        tools:ignore="MissingConstraints,DuplicateClickableBoundsCheck" />
 
     <Button
         android:id="@+id/create_item_button"
