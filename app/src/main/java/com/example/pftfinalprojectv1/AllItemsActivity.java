@@ -52,6 +52,17 @@ public class AllItemsActivity extends AppCompatActivity {
         });
 
 
+        TextView logOutmTextView = findViewById(R.id.log_out);
+        logOutmTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goToCreateItemActivity = new Intent(AllItemsActivity.this, MainActivity.class);
+                startActivity(goToCreateItemActivity);
+
+            }
+        });
+
+
         // query all current items
         Cursor all_items = inventoryDb.getAllItems();
         int items_length = all_items.getCount();

@@ -4,8 +4,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
-import androidx.annotation.Nullable;
+import android.util.Log;
 
 public class InventoryDb extends SQLiteOpenHelper {
     public InventoryDb(Context context) {
@@ -43,6 +42,20 @@ public class InventoryDb extends SQLiteOpenHelper {
     public Cursor getItemById(String id) {
         SQLiteDatabase db = this.getReadableDatabase();
         return db.rawQuery("SELECT * FROM inventory WHERE _id = ?", new String[]{id});
+    }
+
+    public void updateItem(String field, String value, String id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(field, value);
+        db.update("inventory", values, "_id = ?", new String[]{id} );
+        db.close();
+    }
+
+    public void deleteItem(String id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        db.delete("inventory", "_id =? ", new String[]{id});
     }
 }
 

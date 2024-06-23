@@ -10,16 +10,6 @@
     tools:context=".AllItemsActivity">
 
     <TextView
-        android:layout_width="136dp"
-        android:layout_height="36dp"
-        android:padding="8dp"
-        android:text="@string/log_out"
-
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="147dp"
-        tools:layout_editor_absoluteY="666dp" />
-
-    <TextView
         android:id="@+id/warehouseInventoryText"
         android:layout_width="395dp"
         android:layout_height="wrap_content"
@@ -47,7 +37,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.214" />
+        app:layout_constraintVertical_bias="0.14" />
 
     <ListView
         android:id="@+id/simpleListView"
@@ -63,9 +53,6 @@
         app:layout_constraintVertical_bias="0.54"
         />
 
-
-
-
     <Button
         android:id="@+id/add_item"
         android:layout_width="151dp"
@@ -80,6 +67,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.9" />
+        app:layout_constraintVertical_bias="0.92" />
+
+    <TextView
+        android:id="@+id/log_out"
+        android:layout_width="136dp"
+        android:layout_height="36dp"
+        android:padding="8dp"
+        android:text="@string/log_out"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.97" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

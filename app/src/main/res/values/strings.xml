@@ -95,4 +95,5 @@
     <string name="enter_device_phone_number">Enter Device Phone Number</string>
     <string name="log_out">Log out</string>
     <string name="disclaimer_text">This mobile application needs to use telephony features and requires permission to send alert messages to this device. You will receive alerts for low inventory, upcoming events, or reaching a goal weight. If you deny access to the permissions needed for the app to interact with SMS, the app will continue to function overall but will not provide any notifications.</string>
+    <string name="delete_item">Delete Item</string>
 </resources>
